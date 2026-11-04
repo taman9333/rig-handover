@@ -29,6 +29,19 @@ Read first: `docs/vision.md`, `docs/styleguide.md`. Decisions: `docs/adr/`.
 
 5. An issue is closed only when its "Done when" holds. If it can't hold yet, leave it open and
    say what it waits on.
+6. Every issue carries the same shape (decided by the human, 2026-11-04, plan morning-digest), so
+   `plan-to-issues` does not need to ask again:
+
+   ```
+   Source: plan.md § <n>
+
+   Scope: <what to build, from the plan, plus any decision made with the human>
+   Done when: <the plan's line, word for word>
+   Blocked by: <#n, or "—"; "#a (to start), #b (to finish)" when they differ>
+   ```
+
+   Label: `plan:<plan name>`, for example `plan:morning-digest`. A step that waits on someone
+   outside the repo (a reviewer) is done only once they have acted, not once it is sent.
 
 ## Skills
 
