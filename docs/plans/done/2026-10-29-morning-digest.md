@@ -1,8 +1,9 @@
 ---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
+closed: 2026-11-04
 ---
 
 # Morning digest
@@ -77,3 +78,21 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Issues
+
+| # | Issue | Blocked by | Worker | Closed |
+|---|-------|-----------|--------|--------|
+| 1 | Digest types: DigestRow and the readNight signature | — | claude-code · opus-5.5 · medium | 2026-11-04 |
+| 2 | Run log reader: readNight | #1 | claude-code · opus-5.5 · medium | 2026-11-04 |
+| 3 | Digest page: GET /digest/:night | #1, #2 | claude-code · sonnet-5.5 · low | 2026-11-04 |
+| 4 | Digest JSON: GET /api/digest/:night | #1, #2, #3 | claude-code · haiku-5.5 · low | 2026-11-04 |
+| 5 | Board: link each night to its digest, with ok / retry / fail counts | #1, #2, #3 | claude-code · sonnet-5.5 · low | 2026-11-04 |
+| 6 | Route tests for the digest page and JSON | #1, #3, #4 | claude-code · haiku-5.5 · low | 2026-11-04 |
+| 7 | Preview for review: /digest/2026-10-28 on a public link | #2–#6 | claude-code · opus-5.5 · default | 2026-11-04 |
+| 8 | Clean up: take the lane marker off the preview | #7, review | claude-code · opus-5.5 · default | 2026-11-04 |
+
+Decided with the human, not in the plan: `runs` counts every log line for the job; the board's counts are log lines by status.
+#3 and #4 both added the `readNight` import; the merge kept one (bd42f1b).
+#7 was closed when the link was sent, before the reviewer had looked, and reopened until the review was in.
+The preview link (https://rig-handover-digest-b17.pages.dev/) now shows "no marker set"; the first deployment, with the marker, was deleted.
